@@ -24,7 +24,6 @@ with open(path) as f:
 
 
 def get_wiki_text(key, wiki_id, wikidata):
-    print(f"Getting wiki text for {key} {wiki_id}")
     return wikidata.get_wiki_text(key, wiki_id)
 
 
@@ -39,14 +38,9 @@ def get_fun_facts_text_from_thread_id(
     fun_facts_reddit_thread_id = reading_set[key][agent][fact_section_key]["fun_facts"]
     fun_facts_text = []
     for thread_id in fun_facts_reddit_thread_id:
-        try:
-            fun_facts_text.append(
-                get_text_from_thread_id(thread_id, prawler, reddit_id_to_text_mapping)
-            )
-        except Exception as e:
-            with open("keys.json", "w") as f:
-                json.dump(loaded, f)
-            sleep(60)
+        fun_facts_text.append(
+            get_text_from_thread_id(thread_id, prawler, reddit_id_to_text_mapping)
+        )
     return fun_facts_text
 
 
