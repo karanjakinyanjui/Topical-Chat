@@ -33,7 +33,7 @@ def get_text_from_thread_id(reddit_thread_id, prawler, reddit_id_to_text_mapping
     if not val:
         print(f"no val {reddit_thread_id}")
 
-    return val
+    return prawler.clean(val)
 
 
 def get_fun_facts_text_from_thread_id(
