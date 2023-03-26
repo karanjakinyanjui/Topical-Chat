@@ -29,9 +29,9 @@ def get_wiki_text(key, wiki_id, wikidata):
 
 
 def get_text_from_thread_id(reddit_thread_id, prawler, reddit_id_to_text_mapping):
-    val = reddit_id_to_text_mapping.get("reddit_thread_id", "")
+    val = reddit_id_to_text_mapping.get(reddit_thread_id, "")
     if not val:
-        print("no val")
+        print(f"no val {reddit_thread_id}")
 
     return val
 
