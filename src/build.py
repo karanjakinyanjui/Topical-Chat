@@ -209,7 +209,6 @@ def main():
     wapo_retriever = WapoRetriever()
     wikidata = WikiData()
     for filename in os.listdir(reading_set_pre_build_directory):
-#     for filename in ["test_freq.json"]:
         print("Begin processing file:", filename)
         create_post_built_reading_set_file(
             reading_set_pre_build_directory,
@@ -222,7 +221,6 @@ def main():
             wikidata,
         )
         print("Finished processing file:", filename)
-        break
 
     verify(reading_set_post_build_directory)
 
