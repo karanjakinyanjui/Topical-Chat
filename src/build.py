@@ -10,17 +10,18 @@ from tqdm import tqdm
 import hashlib
 from time import sleep
 
-loaded = {}
-
 from pathlib import Path
 import time
+
+loaded = {}
+
 
 path = Path("keys.json")
 
 
 with open(path) as f:
     loaded = json.load(f)
-    loaded = {f"t3_{k}": v for k, v in loaded.items()}
+    loaded = {f"t3_{k.split('t3_')[-1]}": v for k, v in loaded.items()}
 
 
 def get_wiki_text(key, wiki_id, wikidata):
